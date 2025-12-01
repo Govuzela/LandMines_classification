@@ -20,24 +20,25 @@ Dockerised deployment for reproducibility
 The project is intended for research, prototyping, and applied machine learning in defence and humanitarian contexts.
 
 2. Project Structure
-
-├── app/                                   # Flask application for serving predictions
-├── catboost_info/                         # CatBoost training logs and metadata
-├── Dockerfile                             # Container specification
-├── Mine_Dataset.xls                       # Dataset with normalized features
-├── model_depth_10_lr_0.02_iter_200.bin    # Trained CatBoost model
+.
+├── app/ # Flask application for serving predictions
+├── catboost_info/ # CatBoost training logs and metadata
+├── Dockerfile # Container specification
+├── Mine_Dataset.xls # Dataset with normalized features
+├── model_depth_10_lr_0.02_iter_200.bin # Trained CatBoost model
 ├── notebooks/
-│   └── train_notebook.ipynb               # Exploratory model training notebook
-├── Pipfile / Pipfile.lock                 # Python environment definitions
+│ └── train_notebook.ipynb # Exploratory model training notebook
+├── Pipfile / Pipfile.lock # Python environment definitions
 ├── src/
-│   ├── train.py                           # Training pipeline with K-Fold CV
-│   ├── predict.py                         # CLI prediction script
-│   ├── predict_flask.py                   # Flask API wrapper
-│   ├── predict_test.py                    # API test harness
-│   └── preprocessing/                     # Feature extraction and preprocessing utilities
-└── README.md
+│ ├── train.py # Training pipeline with K-Fold CV
+│ ├── predict.py # CLI prediction script
+│ ├── predict_flask.py # Flask API wrapper
+│ ├── predict_test.py # API test harness
+│ └── preprocessing/ # Feature extraction and preprocessing utilities
+└── README.md # Project documentation
+.
 
-3. Installation
+4. Installation
 3.1 Requirements
 
 Python 3.10+
