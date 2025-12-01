@@ -18,24 +18,23 @@ Command-line and API-based inference
 Dockerised deployment for reproducibility
 
 The project is intended for research, prototyping, and applied machine learning in defence and humanitarian contexts.
-## Project Structure
-ml-midterm-clean/
-├── Dockerfile              # Container configuration
-├── fly.toml                # Fly.io deployment config
-├── pyproject.toml          # Python dependencies (uv)
-├── uv.lock                 # Locked dependencies
-├── train.py                # Model training script
-├── predict.py              # FastAPI application
-├── model_files/
-│   └── stroke_model.bin    # Trained model + vectorizer
-├── notebooks/              # Model development notebooks
-│   ├── 01_data_preparation.ipynb
-│   ├── 02_logistic_regression.ipynb
-│   ├── 03_decision_tree.ipynb
-│   ├── 04_random_forest.ipynb
-│   └── 05_xg_boost.ipynb
-└── data/
-    └── healthcare-dataset-stroke-data.csv
+## Project structure
+.
+├── app/                                   # Flask application for model inference
+├── catboost_info/                         # CatBoost training logs and metadata
+├── Dockerfile                             # Container specification
+├── Mine_Dataset.xls                       # Main dataset with engineered features
+├── model_depth_10_lr_0.02_iter_200.bin    # Trained CatBoost model
+├── notebooks/                             # Jupyter notebooks for exploration
+│   └── train_notebook.ipynb
+├── Pipfile / Pipfile.lock                 # Reproducible Python environment
+├── src/                                   # Core source code
+│   ├── train.py                           # Training pipeline
+│   ├── predict.py                         # CLI prediction script
+│   ├── predict_flask.py                   # API-ready prediction logic
+│   ├── predict_test.py                    # Test harness for inference
+└── README.md
+
 4. Installation
 3.1 Requirements
 
