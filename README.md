@@ -4,13 +4,10 @@ Landmine Detection Using Machine learning
 
 2. Introduction
 
-This project implements a complete machine-vision workflow for detecting landmines, improvised explosive devices (IEDs),using features derived from voltage, height, and soil-type measurements.
+This project implements a complete machine-learning workflow for detecting landmines, improvised explosive devices (IEDs),using features derived from voltage, height, and soil-type measurements.
 The system provides:
 
 Data loading, cleaning, and preprocessing
-
-Feature engineering for voltage, height, and soil-type
-
 Model training using CatBoost with K-Fold cross-validation
 
 Command-line and API-based inference
@@ -28,10 +25,13 @@ Pipenv (recommended) or pip
 macOS / Linux / Windows
 
 CPU-only operation supported
+
 3.2 Using Pipenv (Recommended)
+
 pip install pipenv
 pipenv install
 pipenv shell
+
 4.Dataset & Preprocessing
 4.1 Dataset
 
@@ -57,18 +57,13 @@ Mine_Dataset.xls (from:KAHRAMAN, H. (2018). Land Mines [Dataset]. UCI Machine Le
 | **M**         | Target  | Integer    | Mine type: five different landmine classes commonly encountered in field conditions.                                                               | —     | No             |
 
 
-
-The preprocessing pipeline is designed to prepare the landmine dataset for machine learning models and incorporates both numerical and categorical features informed by exploratory data analysis (EDA). Key steps include:
-
 Normalization and Type Conversion
 
-String representations of numerical measurements (e.g., voltage and height) are converted to float.
-
-Values are normalised to a consistent range (0–1) to ensure comparability across features.
+String representations of numerical measurements (e.g., voltage and height) are float.
 
 Soil-Type Categorical Encoding
 
-The Soil_type variable, originally in normalized increments (0, 0.2, …, 1.0), is transformed into a categorical feature soil_type_cat with 6 categories.
+The Soil_type variable, originally in normalised increments (0, 0.2, …, 1.0), is transformed into a categorical feature soil_type_cat with 6 categories.
 
 This captures discrete soil characteristics relevant to mine detection and allows models to learn soil-dependent patterns.
 
@@ -91,15 +86,15 @@ Dataset is split into training, validation, and test sets with reproducible rand
 
 K-Fold cross-validation ensures robust model evaluation and reduces overfitting risk.
 
-Outcome: The resulting processed dataset captures all critical patterns needed for CatBoost and other ML models, balancing numerical precision with categorical interpretability, and is informed by both feature-level analysis and global landmine contamination context.
+Outcome: 
+
+The resulting processed dataset captures all critical patterns needed for CatBoost and other ML models, balancing numerical precision with categorical interpretability, and is informed by both feature-level analysis and global landmine contamination context.
+
 5.1 Script-Based Training
 
 Run:
 
 python src/train.py
-
-
-Pipeline:
 
 Loads Mine_Dataset.xls and normalises data
 
@@ -138,10 +133,8 @@ notebooks/train_notebook.ipynb
 python src/predict.py --input path/to/sample.json
 
 6.2 API Test Harness
-python src/predict_test.py
-
-
-Sends a JSON POST request to the Flask API at http://localhost:9898/predict_flask
+**python src/predict_test.py**
+Sends a JSON POST request to the Flask API at **http://localhost:9898/predict_flask**
 
 Maps predicted class numbers to human-readable labels
 
@@ -149,7 +142,7 @@ Prints class probabilities and confidence
 
 6.3 Flask API
 
-The Flask API is implemented in src/predict_flask.py:
+The Flask API is implemented in **src/predict_flask.py**:
 
 Endpoint: /predict_flask
 
