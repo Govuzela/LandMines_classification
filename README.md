@@ -60,24 +60,20 @@ Mine_Dataset.xls
 It contains:
 
 Voltage, height, and categorical soil type
+Dataset
 
-Classes:
+The dataset used for training and evaluation is contained in:
 
-1 → No mine
+Mine_Dataset.xls (from:KAHRAMAN, H. (2018). Land Mines [Dataset]. UCI Machine Learning Repository. https://doi.org/10.24432/C54C8Z.)
 
-2 → Anti-tank mine
+4.1 Dataset Contents
+| Variable Name | Role    | Type       | Description                                                                                                                                        | Units | Missing Values |
+| ------------- | ------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ----- | -------------- |
+| **V**         | Feature | Continuous | Output voltage value of the FLC sensor resulting from magnetic distortion.                                                                         | V     | No             |
+| **H**         | Feature | Continuous | Height of the sensor above the ground.                                                                                                             | cm    | No             |
+| **S**         | Feature | Continuous | Soil type category. Six soil types based on moisture conditions: dry & sandy, dry & humus, dry & limy, humid & sandy, humid & humus, humid & limy. | —     | No             |
+| **M**         | Target  | Integer    | Mine type: five different landmine classes commonly encountered in field conditions.                                                               | —     | No             |
 
-3 → Anti-personnel mine
-
-4 → Booby-trapped/anti-personnel
-
-5 → M14 anti-personnel
-
-4.2 Preprocessing
-
-All preprocessing and feature engineering logic resides in:
-
-src/preprocessing/
 
 
 The preprocessing pipeline is designed to prepare the landmine dataset for machine learning models and incorporates both numerical and categorical features informed by exploratory data analysis (EDA). Key steps include:
@@ -127,21 +123,6 @@ Outcome: The resulting processed dataset captures all critical patterns needed f
 
 
 
-
-
-4. Dataset
-
-The dataset used for training and evaluation is contained in:
-
-Mine_Dataset.xls (from:KAHRAMAN, H. (2018). Land Mines [Dataset]. UCI Machine Learning Repository. https://doi.org/10.24432/C54C8Z.)
-
-4.1 Dataset Contents
-| Variable Name | Role    | Type       | Description                                                                                                                                        | Units | Missing Values |
-| ------------- | ------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ----- | -------------- |
-| **V**         | Feature | Continuous | Output voltage value of the FLC sensor resulting from magnetic distortion.                                                                         | V     | No             |
-| **H**         | Feature | Continuous | Height of the sensor above the ground.                                                                                                             | cm    | No             |
-| **S**         | Feature | Continuous | Soil type category. Six soil types based on moisture conditions: dry & sandy, dry & humus, dry & limy, humid & sandy, humid & humus, humid & limy. | —     | No             |
-| **M**         | Target  | Integer    | Mine type: five different landmine classes commonly encountered in field conditions.                                                               | —     | No             |
 5. Training the Model
 5.1 Script-Based Training
 
