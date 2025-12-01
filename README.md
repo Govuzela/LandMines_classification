@@ -20,7 +20,7 @@ Dockerised deployment for reproducibility
 The project is intended for research, prototyping, and applied machine learning in defence and humanitarian contexts.
 
 2. Project Structure
-.
+
 ├── app/                                   # Flask application for serving predictions
 ├── catboost_info/                         # CatBoost training logs and metadata
 ├── Dockerfile                             # Container specification
