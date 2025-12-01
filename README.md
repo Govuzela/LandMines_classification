@@ -1,8 +1,8 @@
 Landmine Detection Using Machine learning
 
-A CatBoost-Based Framework for Detecting Mines, and IEDs
+1. A CatBoost-Based Framework for Detecting Mines, and IEDs
 
-1. Introduction
+2. Introduction
 
 This project implements a complete machine-vision workflow for detecting landmines, improvised explosive devices (IEDs),using features derived from voltage, height, and soil-type measurements.
 The system provides:
@@ -18,24 +18,7 @@ Command-line and API-based inference
 Dockerised deployment for reproducibility
 
 The project is intended for research, prototyping, and applied machine learning in defence and humanitarian contexts.
-## Project structure
-.
-├── app/                                   # Flask application for model inference
-├── catboost_info/                         # CatBoost training logs and metadata
-├── Dockerfile                             # Container specification
-├── Mine_Dataset.xls                       # Main dataset with engineered features
-├── model_depth_10_lr_0.02_iter_200.bin    # Trained CatBoost model
-├── notebooks/                             # Jupyter notebooks for exploration
-│   └── train_notebook.ipynb
-├── Pipfile / Pipfile.lock                 # Reproducible Python environment
-├── src/                                   # Core source code
-│   ├── train.py                           # Training pipeline
-│   ├── predict.py                         # CLI prediction script
-│   ├── predict_flask.py                   # API-ready prediction logic
-│   ├── predict_test.py                    # Test harness for inference
-└── README.md
 
-4. Installation
 3.1 Requirements
 
 Python 3.10+
@@ -49,8 +32,7 @@ CPU-only operation supported
 pip install pipenv
 pipenv install
 pipenv shell
-
-Dataset & Preprocessing
+4.Dataset & Preprocessing
 4.1 Dataset
 
 The dataset is located at:
@@ -67,7 +49,6 @@ The dataset used for training and evaluation is contained in:
 
 Mine_Dataset.xls (from:KAHRAMAN, H. (2018). Land Mines [Dataset]. UCI Machine Learning Repository. https://doi.org/10.24432/C54C8Z.)
 
-4.1 Dataset Contents
 | Variable Name | Role    | Type       | Description                                                                                                                                        | Units | Missing Values |
 | ------------- | ------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ----- | -------------- |
 | **V**         | Feature | Continuous | Output voltage value of the FLC sensor resulting from magnetic distortion.                                                                         | V     | No             |
@@ -111,24 +92,6 @@ Dataset is split into training, validation, and test sets with reproducible rand
 K-Fold cross-validation ensures robust model evaluation and reduces overfitting risk.
 
 Outcome: The resulting processed dataset captures all critical patterns needed for CatBoost and other ML models, balancing numerical precision with categorical interpretability, and is informed by both feature-level analysis and global landmine contamination context.
-ml-midterm-clean/
-├── Dockerfile              # Container configuration
-├── fly.toml                # Fly.io deployment config
-├── pyproject.toml          # Python dependencies (uv)
-├── uv.lock                 # Locked dependencies
-├── train.py                # Model training script
-├── predict.py              # FastAPI application
-├── model_files/
-│   └── stroke_model.bin    # Trained model + vectorizer
-├── notebooks/              # Model development notebooks
-│   ├── 01_data_preparation.ipynb
-│   ├── 02_logistic_regression.ipynb
-│   ├── 03_decision_tree.ipynb
-│   ├── 04_random_forest.ipynb
-│   └── 05_xg_boost.ipynb
-└── data/
-    └── healthcare-dataset-stroke-data.csv
-5. Training the Model
 5.1 Script-Based Training
 
 Run:
@@ -275,7 +238,3 @@ API test (predict_test.py)
 Docker deployment (Dockerfile)
 
 Dataset and preprocessing logic
-
-I can also create a diagram showing the full workflow from dataset → preprocessing → training → API → Docker if you want a visual for the README.
-
-Do you want me to do that?
