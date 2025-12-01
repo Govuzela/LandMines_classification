@@ -34,6 +34,9 @@ The project is intended for research, prototyping, and applied machine learning 
 │   ├── predict.py                         # CLI prediction script
 │   ├── predict_flask.py                   # Flask API wrapper
 │   ├── predict_test.py                    # API test harness
+│   └── preprocessing/                     # Feature extraction and preprocessing utilities
+└── README.md
+
 3. Installation
 3.1 Requirements
 
