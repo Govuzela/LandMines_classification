@@ -20,27 +20,6 @@ Dockerised deployment for reproducibility
 The project is intended for research, prototyping, and applied machine learning in defence and humanitarian contexts.
 ## Project Structure
 
-<details>
-<summary>Click to expand</summary>
-
-.
-├── app/ # Flask application for serving predictions
-├── catboost_info/ # CatBoost training logs and metadata
-├── Dockerfile # Container specification
-├── Mine_Dataset.xls # Dataset with normalized features
-├── model_depth_10_lr_0.02_iter_200.bin # Trained CatBoost model
-├── notebooks/
-│ └── train_notebook.ipynb # Exploratory model training notebook
-├── Pipfile / Pipfile.lock # Python environment definitions
-├── src/
-│ ├── train.py # Training pipeline with K-Fold CV
-│ ├── predict.py # CLI prediction script
-│ ├── predict_flask.py # Flask API wrapper
-│ ├── predict_test.py # API test harness
-│ └── preprocessing/ # Feature extraction and preprocessing utilities
-└── README.md # Project documentation
-</details>
-
 4. Installation
 3.1 Requirements
 
@@ -56,7 +35,7 @@ pip install pipenv
 pipenv install
 pipenv shell
 
-. Dataset & Preprocessing
+Dataset & Preprocessing
 4.1 Dataset
 
 The dataset is located at:
@@ -97,19 +76,10 @@ The Soil_type variable, originally in normalized increments (0, 0.2, …, 1.0), 
 
 This captures discrete soil characteristics relevant to mine detection and allows models to learn soil-dependent patterns.
 
-Feature Engineering & IR–Visible Fusion
-
+Feature Engineering 
 Combines Voltage, Height, and soil_type_cat to capture interactions between sensor readings and terrain.
 
 Enables models to differentiate mine types (Anti-Tank, Anti-Personnel, Booby-Trapped, M14) and background/no-mine cases.
-
-Insights from global landmine contamination patterns (Ukraine, DR Congo, Sudan, Myanmar, Yemen, Angola) guided the choice of features that reflect environmental risk factors and detectability.
-
-Noise Reduction & Outlier Handling
-
-Outliers in sensor readings are identified and removed to improve model stability.
-
-Missing values (if any) are imputed using median values to maintain consistent feature dimensions.
 
 Boxplots, violin plots, and PCA visualisations from EDA are used to confirm feature distributions and separability between classes.
 
@@ -126,10 +96,23 @@ Dataset is split into training, validation, and test sets with reproducible rand
 K-Fold cross-validation ensures robust model evaluation and reduces overfitting risk.
 
 Outcome: The resulting processed dataset captures all critical patterns needed for CatBoost and other ML models, balancing numerical precision with categorical interpretability, and is informed by both feature-level analysis and global landmine contamination context.
-
-
-
-
+ml-midterm-clean/
+├── Dockerfile              # Container configuration
+├── fly.toml                # Fly.io deployment config
+├── pyproject.toml          # Python dependencies (uv)
+├── uv.lock                 # Locked dependencies
+├── train.py                # Model training script
+├── predict.py              # FastAPI application
+├── model_files/
+│   └── stroke_model.bin    # Trained model + vectorizer
+├── notebooks/              # Model development notebooks
+│   ├── 01_data_preparation.ipynb
+│   ├── 02_logistic_regression.ipynb
+│   ├── 03_decision_tree.ipynb
+│   ├── 04_random_forest.ipynb
+│   └── 05_xg_boost.ipynb
+└── data/
+    └── healthcare-dataset-stroke-data.csv
 5. Training the Model
 5.1 Script-Based Training
 
