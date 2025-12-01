@@ -19,7 +19,23 @@ Dockerised deployment for reproducibility
 
 The project is intended for research, prototyping, and applied machine learning in defence and humanitarian contexts.
 ## Project Structure
-
+ml-midterm-clean/
+├── Dockerfile              # Container configuration
+├── fly.toml                # Fly.io deployment config
+├── pyproject.toml          # Python dependencies (uv)
+├── uv.lock                 # Locked dependencies
+├── train.py                # Model training script
+├── predict.py              # FastAPI application
+├── model_files/
+│   └── stroke_model.bin    # Trained model + vectorizer
+├── notebooks/              # Model development notebooks
+│   ├── 01_data_preparation.ipynb
+│   ├── 02_logistic_regression.ipynb
+│   ├── 03_decision_tree.ipynb
+│   ├── 04_random_forest.ipynb
+│   └── 05_xg_boost.ipynb
+└── data/
+    └── healthcare-dataset-stroke-data.csv
 4. Installation
 3.1 Requirements
 
