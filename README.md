@@ -18,8 +18,11 @@ Command-line and API-based inference
 Dockerised deployment for reproducibility
 
 The project is intended for research, prototyping, and applied machine learning in defence and humanitarian contexts.
+## Project Structure
 
-2. Project Structure
+<details>
+<summary>Click to expand</summary>
+
 .
 ├── app/ # Flask application for serving predictions
 ├── catboost_info/ # CatBoost training logs and metadata
@@ -36,7 +39,7 @@ The project is intended for research, prototyping, and applied machine learning 
 │ ├── predict_test.py # API test harness
 │ └── preprocessing/ # Feature extraction and preprocessing utilities
 └── README.md # Project documentation
-.
+</details>
 
 4. Installation
 3.1 Requirements
